@@ -24,6 +24,15 @@ assert(kg == 0.45359237)
 lbs = 0;
 assert(tokg(0) == 0);
 
+% Test array function to convert each index
+lbs = [1; 0; -1]
+kg = zeros(size(lbs))
+for index = size(lbs)
+    kg(index) = tokg(lbs(index))
+end
+
+assert(isequal(kg,[0.45359237;0;-0.45359237]))
+
 
 % Test knots to m/s converter function
 assert(round(toms(1),4) == 0.5144);
